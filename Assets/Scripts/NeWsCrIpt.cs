@@ -16,13 +16,15 @@ public class NeWsCrIpt : MonoBehaviour
     // Update is called once per frame
 	private void Update()
     {
+        // rotate and change color of pyramid over time
         pyramid.transform.Rotate(new Vector3(Mathf.Sin(Time.time) * 2, 45f, Mathf.Cos(Time.time) * 2) * Time.deltaTime);
         pyramidRend.material.color = Color.HSVToRGB(Mathf.Repeat(Time.time / 40, 1f), 1f, 1f);
 	}
 
 	GameObject CreatePyramid() {
         const float dx = 2f, dy = 2f, dz = 2f; // dimensions (max dst from center)
-        Vector3[] vertices = { new Vector3(-dx, 0, -dz), new Vector3(-dx, 0, dz), new Vector3(dx, 0, dz), new Vector3(dx, 0, -dz), new Vector3(0f, dy, 0f), new Vector3(-dx, 0, -dz), new Vector3(-dx, 0, dz), new Vector3(dx, 0, dz), new Vector3(dx, 0, -dz) };
+        Vector3[] vertices = { new Vector3(-dx, 0, -dz), new Vector3(-dx, 0, dz), new Vector3(dx, 0, dz), new Vector3(dx, 0, -dz), new Vector3(0f, dy, 0f),
+            new Vector3(-dx, 0, -dz), new Vector3(-dx, 0, dz), new Vector3(dx, 0, dz), new Vector3(dx, 0, -dz) };
         //int[] tris = { 0,1,3, 1,2,3, 3,4,2, 2,4,1, 1,4,0, 0,4,3 };
         int[] tris = { 0,1,3, 1,2,3, 5,4,6, 6,4,7, 7,4,8, 8,4,5 };
 #if true
@@ -39,14 +41,14 @@ public class NeWsCrIpt : MonoBehaviour
         normals[2] = Vector3.down;
         normals[3] = Vector3.down;
 #endif
-
+        // create mesh
         Mesh m = new Mesh();
         m.vertices = vertices;
         m.triangles = tris;
         m.normals = normals;
         //m.RecalculateNormals();
         m.RecalculateBounds();
-
+        // create gameobject
         GameObject g = new GameObject("Pyramid");
         MeshFilter mf = g.AddComponent<MeshFilter>();
         MeshRenderer mr = g.AddComponent<MeshRenderer>();
