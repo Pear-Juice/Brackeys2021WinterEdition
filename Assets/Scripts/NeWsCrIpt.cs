@@ -23,8 +23,8 @@ public class NeWsCrIpt : MonoBehaviour
 
 	GameObject CreatePyramid() {
         const float dx = 2f, dy = 2f, dz = 2f; // dimensions (max dst from center)
-        Vector3[] vertices = { new Vector3(-dx, 0, -dz), new Vector3(-dx, 0, dz), new Vector3(dx, 0, dz), new Vector3(dx, 0, -dz), new Vector3(0f, dy, 0f),
-            new Vector3(-dx, 0, -dz), new Vector3(-dx, 0, dz), new Vector3(dx, 0, dz), new Vector3(dx, 0, -dz) };
+        Vector3[] vertices = { new Vector3(-dx, -dy/2, -dz), new Vector3(-dx, -dy/2, dz), new Vector3(dx, -dy/2, dz), new Vector3(dx, -dy/2, -dz), new Vector3(0f, dy/2, 0f),
+            new Vector3(-dx, -dy/2, -dz), new Vector3(-dx, -dy/2, dz), new Vector3(dx, -dy/2, dz), new Vector3(dx, -dy/2, -dz) };
         //int[] tris = { 0,1,3, 1,2,3, 3,4,2, 2,4,1, 1,4,0, 0,4,3 };
         int[] tris = { 0,1,3, 1,2,3, 5,4,6, 6,4,7, 7,4,8, 8,4,5 };
 #if true
