@@ -514,6 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 478210460}
   - component: {fileID: 478210461}
+  - component: {fileID: 478210462}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: GameController
@@ -547,6 +548,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6709b889d792a56479fe1e7813db490c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &478210462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478210459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076c0e2773489f14c9451d0e84305122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pyramidRendO: {fileID: 1684312171}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +656,7 @@ GameObject:
   - component: {fileID: 1684312172}
   - component: {fileID: 1684312171}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Pyramid Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6156863}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
