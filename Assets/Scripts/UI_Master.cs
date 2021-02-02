@@ -5,6 +5,7 @@ public class UI_Master : MonoBehaviour
 {
     public RawImage pyramidRendO;
     public RawImage noiseBG;
+    public TMPro.TMP_Text panelText;
 
     public float noiseThreshold;
     public float noiseScrollSpeed;
@@ -22,6 +23,8 @@ public class UI_Master : MonoBehaviour
 
         noiseBG.color = Color.HSVToRGB(Mathf.Repeat(Time.time / 40 + .5f, 1f), 1f, 1f);
         noiseBG.uvRect = new Rect(new Vector2(0f, Time.time * noiseScrollSpeed), Vector2.one);
+
+        panelText.text = UpdateDotString();
     }
 
     Texture2D CreateNoiseTex(int rX, int rY) {
@@ -38,5 +41,10 @@ public class UI_Master : MonoBehaviour
         tex.SetPixels(colBuffer);
         tex.Apply();
         return tex;
+	}
+
+    string UpdateDotString(int maxLength=3, float interval=1.5f) {
+        const string baseMsg = "LOADING";
+        return baseMsg + new string('.', Mathf.FloorToInt((Time.time / interval) % (maxLength + 1)));
 	}
 }
