@@ -53,6 +53,7 @@ public class NeWsCrIpt : MonoBehaviour
         MeshFilter mf = g.AddComponent<MeshFilter>();
         MeshRenderer mr = g.AddComponent<MeshRenderer>();
 
+        g.layer = LayerMask.NameToLayer("RenderUI");
         mf.mesh = m;
 
         return g;
