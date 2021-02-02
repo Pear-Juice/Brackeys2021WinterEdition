@@ -34,7 +34,7 @@ public class UI_Master : MonoBehaviour
         Color[] colBuffer = new Color[rX * rY];
         for(int x = 0; x < rX; x++) {
             for (int y = 0; y < rY; y++) {
-                colBuffer[y * rX + x] = Random.value >= noiseThreshold ? Color.white : Color.black;
+                colBuffer[y * rX + x] = Random.value >= noiseThreshold ? Color.white : Color.gray;
             }
         }
 
