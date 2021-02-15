@@ -25,6 +25,14 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""942bd8af-05c1-4924-893b-56cc5b4b72d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -137,6 +145,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42f963a7-f279-4d7d-b6b5-fe12dba5bab1"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Tap"",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -163,6 +182,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
         // Exploration
         m_Exploration = asset.FindActionMap("Exploration", throwIfNotFound: true);
         m_Exploration_Move = m_Exploration.FindAction("Move", throwIfNotFound: true);
+        m_Exploration_Interact = m_Exploration.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -213,11 +233,13 @@ public class @InputMaster : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Exploration;
     private IExplorationActions m_ExplorationActionsCallbackInterface;
     private readonly InputAction m_Exploration_Move;
+    private readonly InputAction m_Exploration_Interact;
     public struct ExplorationActions
     {
         private @InputMaster m_Wrapper;
         public ExplorationActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Exploration_Move;
+        public InputAction @Interact => m_Wrapper.m_Exploration_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Exploration; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,6 +252,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_ExplorationActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_ExplorationActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_ExplorationActionsCallbackInterface.OnMove;
+                @Interact.started -= m_Wrapper.m_ExplorationActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_ExplorationActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_ExplorationActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_ExplorationActionsCallbackInterface = instance;
             if (instance != null)
@@ -237,6 +262,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -253,5 +281,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
     public interface IExplorationActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

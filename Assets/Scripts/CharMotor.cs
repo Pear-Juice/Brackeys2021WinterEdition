@@ -3,7 +3,8 @@
 public class CharMotor : MonoBehaviour {
 	public CharStats stats;
 
-
+	public float collisionRadius = 1.0f;
+	public ContactFilter2D collisionFilter;
 
 	private Vector2 velocity;
 
@@ -22,8 +23,19 @@ public class CharMotor : MonoBehaviour {
 		Vector2 moveV_target = (Input_Container.moveAxis * stats.speed) - velocity;
 		velocity += moveV_target * acceleration * Time.deltaTime;
 
-		transform.position += (Vector3)velocity * Time.deltaTime;
+		Vector2 processedVelocity = velocity * Time.deltaTime;
+		Vector3 targetPosition = transform.position + (Vector3)processedVelocity;
+		RaycastHit2D[] hits = new RaycastHit2D[3];
+		int hitCount = Physics2D.CircleCast(transform.position, collisionRadius, velocity.normalized, collisionFilter, hits, processedVelocity.magnitude);
+		if (hitCount > 0) {
+			targetPosition = hits[0].point + hits[0].normal * collisionRadius;
+		}
 
-		Debug.Log(velocity);
+		transform.position = targetPosition;
+	}
+
+	private void OnDrawGizmosSelected() {
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireSphere(transform.position, collisionRadius);
 	}
 }
