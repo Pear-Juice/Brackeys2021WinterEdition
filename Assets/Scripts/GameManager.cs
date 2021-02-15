@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 		// SINGLETON
 		if(gmI == null) {
 			gmI = this;
-			DontDestroyOnLoad(gmI);
+			DontDestroyOnLoad(gameObject);
 		} else {
 			Destroy(gameObject);
 		}
