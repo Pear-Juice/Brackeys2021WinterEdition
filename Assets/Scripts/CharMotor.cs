@@ -5,10 +5,10 @@ public class CharMotor : MonoBehaviour {
 
 
 
-	private Vector2 velocity = Vector2.zero;
+	private Vector2 velocity;
 
-	const float acceleration = 1.0f;
-	const float deceleration = 1.0f;
+	const float acceleration = 9.0f;
+	const float deceleration = 6.0f;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -17,8 +17,13 @@ public class CharMotor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		velocity -= Vector2.one * deceleration * Time.deltaTime; // to be implemented later
+		velocity -= velocity * deceleration * Time.deltaTime;
 
-		transform.position += (Vector3)Input_Container.moveAxis * stats.speed * Time.deltaTime;
+		Vector2 moveV_target = (Input_Container.moveAxis * stats.speed) - velocity;
+		velocity += moveV_target * acceleration * Time.deltaTime;
+
+		transform.position += (Vector3)velocity * Time.deltaTime;
+
+		Debug.Log(velocity);
 	}
 }
