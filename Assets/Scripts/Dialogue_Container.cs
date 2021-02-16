@@ -17,4 +17,8 @@ public class Dialogue_Container : ScriptableObject {
 	}
 
 	const string alphabet = "abcdefghijklmnopqrstuvwxyz"; // use this for seeking the audio files in dialogue
+
+	public void SpeakLetter(char c) {
+
+	}
 }
