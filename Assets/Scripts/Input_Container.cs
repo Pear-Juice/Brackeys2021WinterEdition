@@ -15,6 +15,11 @@ public class Input_Container : MonoBehaviour {
 		input.Exploration.Interact.performed += ctx => Interact();
 	}
 
+	public void SetLockState(bool unlocked) {
+		if (unlocked) input.Enable();
+		else input.Disable();
+	}
+
 	#region INPUT VARIABLES
 	public static Vector2 moveAxis;
 	#endregion

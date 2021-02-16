@@ -2,6 +2,8 @@
 
 public class GameManager : MonoBehaviour {
 	public static GameManager gmI; // SINGLETON INSTANCE
+	public static UI_Container UI;
+	public static Input_Container InputContainer;
 
 	// Use Awake for initialization (setting up components etc.)
 	private void Awake() {
@@ -11,16 +13,9 @@ public class GameManager : MonoBehaviour {
 			DontDestroyOnLoad(gameObject);
 		} else {
 			Destroy(gameObject);
+			return;
 		}
-	}
-
-	// Start is called before the first frame update
-	void Start() {
-
-	}
-
-	// Update is called once per frame
-	void Update() {
-
+		UI = GetComponent<UI_Container>();
+		InputContainer = GetComponent<Input_Container>();
 	}
 }

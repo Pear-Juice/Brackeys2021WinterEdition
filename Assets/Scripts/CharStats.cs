@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Character Table", menuName = "Data Table/Character Table")]
+[CreateAssetMenu(fileName = "New Stat Table", menuName = "Data Table/Character Stat Table")]
 public class CharStats : ScriptableObject {
-	public string charName = "John Smith";
 
 	public int hp = 1;
 

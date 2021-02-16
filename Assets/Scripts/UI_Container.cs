@@ -3,13 +3,10 @@ using UnityEngine.UI;
 using TMPro;
 
 public class UI_Container : MonoBehaviour {
-	// Start is called before the first frame update
-	void Start() {
 
-	}
+	public Image dialogueRoot;
 
-	// Update is called once per frame
-	void Update() {
-
-	}
+	public Image dialogue_Char1_IMG;
+	public TMP_Text dialogue_Char1_Name;
+	public TMP_Text dialogue_Text;
 }
