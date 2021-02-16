@@ -34,3 +34,4 @@ MonoBehaviour:
     events:
       m_PersistentCalls:
         m_Calls: []
+  speechLetterInterval: 0.13

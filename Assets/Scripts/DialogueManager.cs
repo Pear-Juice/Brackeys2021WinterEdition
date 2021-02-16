@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour {
 		AdvanceDialogue();
 	}
 
+	Coroutine speakRoutine;
+
 	public void AdvanceDialogue() {
 		if(sentences.Count == 0) {
 			GameManager.UI.dialogueRoot.gameObject.SetActive(false);
@@ -33,5 +35,8 @@ public class DialogueManager : MonoBehaviour {
 		GameManager.UI.dialogue_Text.text = sentence.text;
 
 		sentence.events.Invoke();
+
+		if(speakRoutine != null) StopCoroutine(speakRoutine);
+		speakRoutine = StartCoroutine(dialogueContainer.SpeakSentence(dialogueContainer.speakers[sentence.speakerIndex], sentence.text, dialogueContainer.speechLetterInterval));
 	}
 }

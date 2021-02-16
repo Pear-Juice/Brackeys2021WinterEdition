@@ -24,5 +24,6 @@ public class AudioManager : MonoBehaviour {
 		sources[poolIndex].PlayOneShot(audioClip);
 
 		poolIndex++;
+		if (poolIndex >= sources.Length) poolIndex = 0;
 	}
 }
