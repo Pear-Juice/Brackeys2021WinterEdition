@@ -9,4 +9,6 @@ public class UI_Container : MonoBehaviour {
 	public Image dialogue_Char1_IMG;
 	public TMP_Text dialogue_Char1_Name;
 	public TMP_Text dialogue_Text;
+
+	public TMP_Text vectorDebug;
 }

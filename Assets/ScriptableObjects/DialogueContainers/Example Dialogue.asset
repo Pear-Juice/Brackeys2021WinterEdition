@@ -18,19 +18,19 @@ MonoBehaviour:
   sentences:
   - text: Hello, Lucy.
     speakerIndex: 0
-    expressionIndex: 0
+    expression: 0
     events:
       m_PersistentCalls:
         m_Calls: []
-  - text: Hello, Jake.
+  - text: Hello, Jake. What's with the
     speakerIndex: 1
-    expressionIndex: 0
+    expression: 0
     events:
       m_PersistentCalls:
         m_Calls: []
   - text: THE END.
     speakerIndex: 0
-    expressionIndex: 3
+    expression: 2
     events:
       m_PersistentCalls:
         m_Calls: []

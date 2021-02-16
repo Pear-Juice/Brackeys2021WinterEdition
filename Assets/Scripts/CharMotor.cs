@@ -24,13 +24,19 @@ public class CharMotor : MonoBehaviour {
 		Vector2 processedVelocity = velocity * Time.deltaTime;
 		Vector3 targetPosition = transform.position + (Vector3)processedVelocity;
 
+		// collision logic
 		RaycastHit2D[] hits = new RaycastHit2D[3];
 		int hitCount = Physics2D.CircleCast(transform.position, physCfg.collisionRadius, velocity.normalized, physCfg.collisionFilter, hits, processedVelocity.magnitude);
 		if (hitCount > 0) {
 			targetPosition = hits[0].point + hits[0].normal * physCfg.collisionRadius;
+			velocity = (Vector2)targetPosition - (Vector2)transform.position;
+			processedVelocity = velocity * Time.deltaTime;
 		}
 
-		transform.position = targetPosition;
+		// apply forces
+		transform.position += (Vector3)processedVelocity;
+
+		GameManager.UI.vectorDebug.text = Input_Container.moveAxis.ToString();
 	}
 
 	private void OnDrawGizmosSelected() {

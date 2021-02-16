@@ -31,5 +31,7 @@ public class DialogueManager : MonoBehaviour {
 		GameManager.UI.dialogue_Char1_IMG.sprite = dialogueContainer.speakers[sentence.speakerIndex].expressions[(int)sentence.expression];
 		GameManager.UI.dialogue_Char1_Name.text = dialogueContainer.speakers[sentence.speakerIndex].charName;
 		GameManager.UI.dialogue_Text.text = sentence.text;
+
+		sentence.events.Invoke();
 	}
 }
