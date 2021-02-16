@@ -8,7 +8,7 @@ public class Dialogue_Container : ScriptableObject {
 
 	[System.Serializable]
 	public struct Sentence {
-		[TextArea(1, 5)]
+		[TextArea(1, 7)]
 		public string text;
 		public int speakerIndex;
 		public Char_Container.Expression expression;
