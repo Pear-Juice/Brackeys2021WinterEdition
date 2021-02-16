@@ -18,7 +18,7 @@ public class CharMotor : MonoBehaviour {
 	void Update() {
 		velocity -= velocity * deceleration * Time.deltaTime;
 
-		Vector2 moveV_target = (Input_Container.moveAxis * stats.speed) - velocity;
+		Vector2 moveV_target = (Input_Container.moveAxis * stats.speed) - velocity; // amount of force to add to maintain ideal velocity
 		velocity += moveV_target * acceleration * Time.deltaTime;
 
 		Vector2 processedVelocity = velocity * Time.deltaTime;

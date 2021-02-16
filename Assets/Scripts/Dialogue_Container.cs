@@ -15,4 +15,6 @@ public class Dialogue_Container : ScriptableObject {
 
 		public UnityEngine.Events.UnityEvent events;
 	}
+
+	const string alphabet = "abcdefghijklmnopqrstuvwxyz"; // use this for seeking the audio files in dialogue
 }
