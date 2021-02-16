@@ -43,14 +43,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3dd2b7832e6a4cd4da0c20d03af5c4ea, type: 3}
   - {fileID: 21300000, guid: e27080f336a70ba4ab9f1bdba210c694, type: 3}
   - {fileID: 21300000, guid: dfde2a652e86ce74da466922853bbe7a, type: 3}
-  - {fileID: 21300000, guid: 342597aa7093a69429369fb06b39ae9e, type: 3}
   - {fileID: 21300000, guid: da664cba4d34c5947922d04755df38fe, type: 3}
   m_PackedSpriteNamesToIndex:
   - woodWall1
   - sidewalk
   - roadCenter
   - sidewalkCorner
-  - road
   - roadCenterCorner
   m_Tag: Environment Atlas
   m_IsVariant: 0
