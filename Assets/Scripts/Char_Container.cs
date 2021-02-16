@@ -10,4 +10,6 @@ public class Char_Container : ScriptableObject {
 
 	[Header("Dialogue Sprites")]
 	public Sprite[] expressions;
+
+	public AudioClip[] dialogueSounds;
 }
